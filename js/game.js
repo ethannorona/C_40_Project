@@ -67,7 +67,6 @@ class Game{
                     textSize(25);
                     text("Player1 : " + allPlayers.player1.score, 50, 50);
                     text("Player2 : " + allPlayers.player2.score, 50, 100);
-                      
                  
                  }
                 
@@ -115,7 +114,10 @@ class Game{
                     }
                   }
                 
-
+                  if(player.score >= 30){
+                      game.update(2);
+                      player.updateCount(0);
+                  }
          
          
         
@@ -125,5 +127,15 @@ class Game{
 
     end(){
        console.log("Game Ended");
+       if(gameState === 2 && player.score >= 30){
+            fill("white");
+            textSize(100);
+            text("You Win", displayWidth/4 - 50, displayHeight/3);
+    }
+       else if(gameState === 2 && player.score < 30){
+            fill("white");
+            textSize(100);
+            text("You lose", displayWidth/4 - 50, displayHeight/3);
+}
     }
 }
